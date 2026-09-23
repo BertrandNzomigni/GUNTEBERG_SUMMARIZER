@@ -1,8 +1,11 @@
-FROM python:3.13
+FROM base_image:latest
+
 RUN mkdir code
 ADD code/ /code
 WORKDIR /code
-RUN pip install pandas
+
 RUN mkdir books
-RUN ["python","main.py"]
+RUN mkdir model
+
+RUN ["python","book_importer.py"]
 CMD ["python","loop.py"]
