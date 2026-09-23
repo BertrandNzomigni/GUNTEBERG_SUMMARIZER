@@ -1,0 +1,20 @@
+build_base.sh:
+    - Builds the image requiring lengthy installations. This is required for the second image.
+build.sh:
+    - Builds the second image. The first image is required for this build. The second image provides the functionality.
+clear.sh:
+    - Deletes the container for the second image, then the second image itself.
+save_model.sh:
+    - Downloads the model to a directory accessible to the container.
+    - The model is stored in the ‘model’ directory (if the directory exists)
+setup.sh:
+    - Runs build_base.sh and build.sh, creates a ‘model’ directory, then runs save_model.sh.
+    - The model is stored in the ‘model’ directory.
+start.sh:
+    - Starts the container.
+stop.sh:
+    - Stops the container.
+summary.sh:
+    - Displays a summary of a book or a section of a book.
+restart.sh:
+    - Runs the scripts stop.sh, clear.sh and build.sh in that order.
